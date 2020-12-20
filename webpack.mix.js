@@ -13,7 +13,7 @@ const mix = require('laravel-mix');
  */
 
 mix.ts('resources/js/index.tsx', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css').sourceMaps();
 
 
-mix.browserSync({proxy: '127.0.0.1:8000'});
+mix.browserSync('127.0.0.1:8000');

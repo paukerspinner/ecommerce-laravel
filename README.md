@@ -16,7 +16,7 @@
 ```json
 {
   "compilerOptions": {
-    "jsx": "react",                     /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
+    "jsx": "react",
   }
 }
 ```

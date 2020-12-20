@@ -5,6 +5,7 @@
  */
 
 require('./bootstrap');
+require('../assets/js/template');
 
 /**
  * Next, we will create a fresh React component instance and attach it to
@@ -15,7 +16,7 @@ require('./bootstrap');
  import React from 'react';
 import ReactDom from 'react-dom';
 
-import App from './components/app';
+import App from './app';
 
 
 
