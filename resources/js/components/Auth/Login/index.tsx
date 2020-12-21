@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import actions from '../../../actions';
 
 class Login extends Component<any, any> {
+    
+    handleOnSubmit = (event: any) => {
+        event.preventDefault();
+        this.props.success_login({access_token: 'sdfsdfsdf'});
+        console.log(this.props.state)
+    }
+
     render() {
         return (
             <div className="container-scroller">
@@ -10,7 +19,7 @@ class Login extends Component<any, any> {
                             <div className="col-lg-6 d-flex align-items-center justify-content-center">
                                 <div className="auth-form-transparent text-left p-3">
                                     <h4>Welcome back!</h4>
-                                    <form className="pt-3">
+                                    <form className="pt-3" onSubmit={this.handleOnSubmit}>
                                         <div className="form-group">
                                             <label htmlFor="exampleInputEmail">Username</label>
                                             <div className="input-group">
@@ -43,7 +52,7 @@ class Login extends Component<any, any> {
                                             <a href="#" className="auth-link text-black">Forgot password?</a>
                                         </div>
                                         <div className="my-3">
-                                            <a className="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="#">LOGIN</a>
+                                            <button type="submit" className="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">LOGIN</button>
                                         </div>
                                         <div className="text-center mt-4 font-weight-light">
                                             Don't have an account? <a href="#" className="text-primary">Create</a>
@@ -62,4 +71,18 @@ class Login extends Component<any, any> {
     }
 }
 
-export default Login;
+const mapStateToProps = (state: any) => {
+    return {
+        state
+    }
+}
+
+const mapDispatchToProps = (dispatch: any, props: any) => {
+    return {
+        success_login: (payload: any) => {
+            dispatch(actions.auth.success_login(payload));
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
